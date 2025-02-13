@@ -70,6 +70,70 @@
             height: auto; 
         }
 
+        /* Simple Button for lyrics */
+        .simple-button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .simple-button:hover {
+            background-color: #e0356b;
+        }
+
+        /* Style for displaying lyrics */
+        .lyrics-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff3f3;
+            border-radius: 8px;
+            width: 70%;
+            max-width: 600px;
+            text-align: left;
+            font-size: 1.2em;
+            display: none; /* Hidden by default */
+            margin-left: auto;
+            margin-right: auto;
+            position: relative; /* Necessary for absolute positioning */
+        }
+
+        /* Position GIFs in the corners */
+        .lyrics-container .corner-gif {
+            position: absolute;
+            width: 50px; /* Set the size of the GIF */
+            height: 50px; /* Set the size of the GIF */
+        }
+
+        /* Top-left corner */
+        .top-left {
+            top: 0;
+            left: 0;
+        }
+
+        /* Top-right corner */
+        .top-right {
+            top: 0;
+            right: 0;
+        }
+
+        /* Bottom-left corner */
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Bottom-right corner */
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+
         /* Hide parts of the page initially */
         .yes-page {
             display: none;
@@ -92,14 +156,37 @@
     <!-- Part 2: Knew you would say yes page -->
     <div class="container yes-page" id="yesPage">
         <h1 class="header_text">Knew you would say yes!</h1>
-        <p class="header_text">You are so pretty please listen to the lyrics of the song :) </p>
+        <p class="header_text">You are so pretty please listen to the lyrics of the song ^_^</p>
         <div class="gif_container">
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3htcGdzaDFsanMyY3ZocWdwNGpuOXRsa2k5a24yNzR5YTlxeGVzYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26FLdmIp6wJr91JAI/giphy.gif" alt="Celebration GIF">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWMwdmthZTJidTF3bGJrYnVrOTQyZXBsMHVvY2N2emxmem9sZXR0aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e5xL4bU0ETgLm/giphy.gif" alt="Celebration GIF">
+        </div>
+
+        <!-- Simple button for lyrics -->
+        <button class="simple-button" onclick="showLyrics()">Click here for the lyrics</button>
+
+        <!-- Lyrics Container -->
+        <div id="lyricsContainer" class="lyrics-container">
+            <h2>Lyrics:</h2>
+            <p>If I mentioned the pride before the fall</p>
+            <p>'Cause I wanna risk it all for you</p>
+            <p>What they say 'bout the writings on the wall?</p>
+            <p>No clue</p>
+            <p>Baby, I adore you</p>
+            <p>Baby, I adore</p>
+            <p>I adore you</p>
+            <p>Baby, I adore</p>
+    
+
+            <!-- Added GIFs in every corner -->
+            <img class="corner-gif top-left" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmdlYXJqNHpnc3RyYXh0amtmeWJveHA1MWdqaWZ4dTZicXV0OHNjNCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WIRKJAkadFNcc/giphy.gif" alt="Corner GIF">
+            <img class="corner-gif top-right" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmdlYXJqNHpnc3RyYXh0amtmeWJveHA1MWdqaWZ4dTZicXV0OHNjNCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WIRKJAkadFNcc/giphy.gif" alt="Corner GIF">
+            <img class="corner-gif bottom-left" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmdlYXJqNHpnc3RyYXh0amtmeWJveHA1MWdqaWZ4dTZicXV0OHNjNCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WIRKJAkadFNcc/giphy.gif" alt="Corner GIF">
+            <img class="corner-gif bottom-right" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmdlYXJqNHpnc3RyYXh0amtmeWJveHA1MWdqaWZ4dTZicXV0OHNjNCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WIRKJAkadFNcc/giphy.gif" alt="Corner GIF">
         </div>
     </div>
 
     <!-- Audio Element (Online Music) -->
-    <audio id="backgroundMusic" src="Hentai - Cigarettes After Sex [vKPDErkU77A].mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" src="Drake - Polar Opposites [0bxhAxRmrJw].mp3" preload="auto"></audio>
 
     <script>
         // JavaScript
@@ -122,7 +209,7 @@
         function playMusic() {
             const audio = document.getElementById('backgroundMusic');
             if (audio.paused) {
-                audio.currentTime = 60;  // Start the music from 20 seconds
+                audio.currentTime = 204;  // Start the music from 20 seconds
                 audio.play();  // Play the audio
             }
         }
@@ -144,6 +231,12 @@
             document.getElementById('yesPage').style.display = 'block';
 
             playMusic();  // Play the music when the user clicks 'Yes'
+        }
+
+        function showLyrics() {
+            // Toggle the visibility of the lyrics
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            lyricsContainer.style.display = lyricsContainer.style.display === 'block' ? 'none' : 'block';
         }
 
         // Optional update checking script
